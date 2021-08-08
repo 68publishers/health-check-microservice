@@ -1,0 +1,36 @@
+version: "3.7"
+
+services:
+    app:
+        image: 68publishers/docker-images:php-nginx-unit-7.4
+        container_name: health-check-microservice-app
+        command: ["run-nginx-unit"]
+        ports:
+            - 8888:8080
+        volumes:
+            - .:/var/www/html:cached
+
+    postgres:
+        image: postgres:13.3
+        container_name: health-check-microservice-postgres
+        restart: always
+        ports:
+            - 5432:5432
+        volumes:
+            - ./docker/postgres/postgres.conf:/var/lib/postgresql/data/postgresql.conf:delegated
+            - ./var/postgres-data:/var/lib/postgresql/data:cached
+        environment:
+            - PGDATA=/var/lib/postgresql/data/pgdata
+            - POSTGRES_USER=root
+            - POSTGRES_PASSWORD=root
+            - POSTGRES_DB=health-check-microservice
+        command:
+            - postgres
+            - -c
+            - config_file=/var/lib/postgresql/data/postgresql.conf
+
+    redis:
+        image: redis:5.0.8-alpine
+        container_name: health-check-microservice-redis
+        ports:
+            - 6379:6379

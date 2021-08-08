@@ -1,0 +1,60 @@
+{
+	"name": "68publishers/health-check-microservice",
+	"description": "Health check microservice.",
+	"keywords": ["68publishers", "health", "check", "health-check", "nette"],
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Tomáš Glawaty",
+			"email": "tomasglawaty@icloud.com"
+		}
+	],
+	"require": {
+		"php": "^7.4",
+		"68publishers/environment": "^0.3.0",
+		"68publishers/health-check": "^0.1.2",
+		"nette/application": "^3.0.6",
+		"nette/bootstrap": "^3.0",
+		"nette/di": "^3.0.3",
+		"nette/http": "^3.0.0"
+	},
+	"require-dev": {
+		"friendsofphp/php-cs-fixer": "^2.19",
+		"nette/tester": "^2.3.4",
+		"roave/security-advisories": "dev-latest",
+		"tracy/tracy": "^2.8"
+	},
+	"conflict": {
+		"nette/schema": "<1.1"
+	},
+	"autoload": {
+		"psr-4": {
+			"SixtyEightPublishers\\HealthCheckMicroservice\\": "src/"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"SixtyEightPublishers\\HealthCheckMicroservice\\Tests\\": "tests/"
+		}
+	},
+	"config": {
+		"sort-packages": true
+	},
+	"scripts": {
+		"php-cs-fixer": [
+			"vendor/bin/php-cs-fixer fix -v"
+		],
+		"tests": [
+			"@tests:lowest",
+			"@tests:highest"
+		],
+		"tests:lowest" : [
+			"@composer update --no-progress --prefer-dist --prefer-lowest --prefer-stable",
+			"vendor/bin/tester ./tests"
+		],
+		"tests:highest" : [
+			"@composer update --no-progress --prefer-dist --prefer-stable",
+			"vendor/bin/tester ./tests"
+		]
+	}
+}

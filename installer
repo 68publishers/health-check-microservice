@@ -1,0 +1,19 @@
+#!/bin/sh
+
+# ENV variables
+cp .env.dist .env
+. .env
+
+cp -n config/service_checkers.neon.dist config/service_checkers.neon
+
+echo "Running docker-compose (down, pull & up)"
+
+docker-compose -f docker-compose.yml down
+docker-compose -f docker-compose.yml pull
+docker-compose -f docker-compose.yml up -d
+
+echo "Running composer install"
+
+docker exec -it health-check-microservice-app composer install --no-interaction --no-ansi --prefer-dist --no-suggest --no-progress --optimize-autoloader
+
+exit 0

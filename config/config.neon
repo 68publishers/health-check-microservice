@@ -1,0 +1,18 @@
+php:
+	date.timezone: UTC
+
+application:
+	scanDirs: no
+	scanComposer: no
+	mapping:
+		*: SixtyEightPublishers\HealthCheckMicroservice\Presenter\*Presenter
+
+http:
+	proxy: ::array_filter(::explode(',', ::env(TRUSTED_PROXIES, '')))
+
+extensions:
+	68publishers.health_check: SixtyEightPublishers\HealthCheck\Bridge\Nette\DI\HealthCheckExtension
+
+services:
+	routing.router: Nette\Application\Routers\Route(::env(HEALTH_CHECK_URL_PATH), HealthCheck:default)
+	presenter.health_check: SixtyEightPublishers\HealthCheckMicroservice\Presenter\HealthCheckPresenter(arrayExportMode: ::env(HEALTH_CHECK_ARRAY_EXPORT_MODE, SixtyEightPublishers\HealthCheck\HealthCheckerInterface::ARRAY_EXPORT_MODEL_SIMPLE))
