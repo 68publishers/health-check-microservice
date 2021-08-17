@@ -4,7 +4,7 @@
 cp .env.dist .env
 . .env
 
-cp -n config/service_checkers.neon.dist config/service_checkers.neon
+cp -n config/health_check_service_checkers.neon.dist config/health_check_service_checkers.neon
 
 echo "Running docker-compose (down, pull & up)"
 

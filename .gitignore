@@ -3,4 +3,4 @@ composer.lock
 /.idea
 
 .env
-config/service_checkers.neon
+config/health_check_service_checkers.neon
