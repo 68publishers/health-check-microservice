@@ -99,7 +99,7 @@ That's all, a health check endpoint will be accessible on the address `domain.co
 | HEALTH_CHECK_ARRAY_EXPORT_MODE | String | no | `simple` | `simple` or `full` - simplified or full response |
 | HEALTH_CHECK_TEMP_DIR | String | no | `var` | Path to temp directory (relatively from the application root) |
 | HEALTH_CHECK_LOG_DIR | String | no | `var/log` | Path to log directory (relatively from the application root) |
-| HEALTH_CHECK_SERVICE_CHECKERS_CONFIG | String | yes | `config/health_check_service_checkers.neon` | Path to a neon file with service checker definitions (relatively from the application root) |
+| HEALTH_CHECK_SERVICE_CHECKERS_CONFIG | String | no | `config/health_check_service_checkers.neon` | Path to a neon file with service checker definitions (relatively from the application root) |
 
 ## Contributing
 
