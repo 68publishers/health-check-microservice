@@ -91,14 +91,14 @@ That's all, a health check endpoint will be accessible on the address `domain.co
  
 ## ENV Variables
 
-| Variable name | Type | Required | Example | Additional info |
+| Variable name | Type | Required | Default | Additional info |
 | ------ | ------ | ------ | ------ | ------ |
-| APP_DEBUG | Boolean | no | 1 | Enables dev/debug mode |
-| TRUSTED_PROXIES | String|CommaSeparatedList | no | 127.0.0.1 | Optional, IP or IPs separated by a comma. The range you can enter like 1.0.0.0/1 |
-| HEALTH_CHECK_URL_PATH | String | yes | `/` or `health` for example | Url path that is used as an endpoint |
-| HEALTH_CHECK_ARRAY_EXPORT_MODE | String | yes | `simple` or `full` | Simplified or full response |
-| HEALTH_CHECK_TEMP_DIR | String | yes | `var` | Path to temp directory (relatively from the application root) |
-| HEALTH_CHECK_LOG_DIR | String | yes | `var/log` | Path to log directory (relatively from the application root) |
+| APP_DEBUG | Boolean | no | `1` | Enables dev/debug mode |
+| TRUSTED_PROXIES | String\|CommaSeparatedList | no |  | Optional, IP or IPs separated by a comma. The range you can enter like 1.0.0.0/1 |
+| HEALTH_CHECK_URL_PATH | String | no | `/` | Url path that is used as an endpoint e.g. `/` or `health` |
+| HEALTH_CHECK_ARRAY_EXPORT_MODE | String | no | `simple` | `simple` or `full` - simplified or full response |
+| HEALTH_CHECK_TEMP_DIR | String | no | `var` | Path to temp directory (relatively from the application root) |
+| HEALTH_CHECK_LOG_DIR | String | no | `var/log` | Path to log directory (relatively from the application root) |
 | HEALTH_CHECK_SERVICE_CHECKERS_CONFIG | String | yes | `config/service_checkers.neon` | Path to a neon file with service checker definitions (relatively from the application root) |
 
 ## Contributing
