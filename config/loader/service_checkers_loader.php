@@ -6,7 +6,7 @@ use Nette\DI\Config\Adapters\NeonAdapter;
 use SixtyEightPublishers\HealthCheckMicroservice\Helper\RootDir;
 
 $adapter = new NeonAdapter();
-$serviceCheckers = $adapter->load(RootDir::path(env('HEALTH_CHECK_SERVICE_CHECKERS_CONFIG', 'config/service_checkers.neon'))) ?? [];
+$serviceCheckers = $adapter->load(RootDir::path(env('HEALTH_CHECK_SERVICE_CHECKERS_CONFIG', 'config/health_check_service_checkers.neon'))) ?? [];
 
 return [
 	'68publishers.health_check' => [

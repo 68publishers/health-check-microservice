@@ -26,7 +26,7 @@ $ ./installer
 
 Once the installation is successful you can edit the [ENV variables](#env-variables) in a file `.env`.
 
-Then open a file `config/service_checkers.neon` and modify definitions of a service checkers according to own requirements.
+Then open a file `config/health_check_service_checkers.neon` and modify definitions of a service checkers according to own requirements.
 
 Now open this URL in a browser `http://localhost:8888` respectively `http://localhost:8888/{HEALTH_CHECK_URL_PATH}`.
 
@@ -41,10 +41,10 @@ Requirements:
 ```bash
 $ composer install
 $ cp .env.dist .env
-$ cp config/service_checkers.neon.dist config/service_checkers.neon
+$ cp config/health_check_service_checkers.neon.dist config/health_check_service_checkers.neon
 ```
 
-Open the file `config/service_checkers.neon` and modify definitions of service checkers according to your own requirements.
+Open the file `config/health_check_service_checkers.neon` and modify definitions of service checkers according to your own requirements.
 You can pass parameters directly into the definition, of course. Usage of the ENV variable for service checkers is not necessary.
 
 Also open the file `.env` where you can edit the [ENV variables](#env-variables). Variables for services like `postgres`, `redis` etc. can be removed if not used.
@@ -99,7 +99,7 @@ That's all, a health check endpoint will be accessible on the address `domain.co
 | HEALTH_CHECK_ARRAY_EXPORT_MODE | String | no | `simple` | `simple` or `full` - simplified or full response |
 | HEALTH_CHECK_TEMP_DIR | String | no | `var` | Path to temp directory (relatively from the application root) |
 | HEALTH_CHECK_LOG_DIR | String | no | `var/log` | Path to log directory (relatively from the application root) |
-| HEALTH_CHECK_SERVICE_CHECKERS_CONFIG | String | yes | `config/service_checkers.neon` | Path to a neon file with service checker definitions (relatively from the application root) |
+| HEALTH_CHECK_SERVICE_CHECKERS_CONFIG | String | yes | `config/health_check_service_checkers.neon` | Path to a neon file with service checker definitions (relatively from the application root) |
 
 ## Contributing
 
