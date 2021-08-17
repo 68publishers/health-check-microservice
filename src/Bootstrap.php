@@ -27,10 +27,10 @@ final class Bootstrap
 		]);
 
 		if (class_exists(Tracy\Debugger::class)) {
-			$configurator->enableTracy(RootDir::path(env('HEALTH_CHECK_LOG_DIR')));
+			$configurator->enableTracy(RootDir::path(env('HEALTH_CHECK_LOG_DIR', 'var/log')));
 		}
 
-		$configurator->setTempDirectory(RootDir::path(env('HEALTH_CHECK_TEMP_DIR')));
+		$configurator->setTempDirectory(RootDir::path(env('HEALTH_CHECK_TEMP_DIR', 'var')));
 		$configurator->addConfig(__DIR__ . '/../config/config.neon');
 		$configurator->addConfig(__DIR__ . '/../config/loader/service_checkers_loader.php');
 
